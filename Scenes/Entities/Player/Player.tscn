@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://qpudg5utu5f7"]
+
+[ext_resource type="Script" uid="uid://cjl7dojq0pfpe" path="res://Scenes/Entities/Player/Player.cs" id="1_7kpwk"]
+[ext_resource type="Texture2D" uid="uid://bk4xd8wcmonwd" path="res://Scenes/Entities/Player/Sprites/hero.png" id="2_qer5h"]
+[ext_resource type="Script" uid="uid://5rplulkyaysp" path="res://Scenes/Entities/Player/States/Jump.cs" id="3_akw4a"]
+[ext_resource type="Script" uid="uid://bewr38g1tna75" path="res://Scenes/Entities/Player/States/Idle.cs" id="3_idle1"]
+[ext_resource type="Script" uid="uid://b5yr1pqe8ojoh" path="res://Scenes/Entities/Player/States/Fall.cs" id="4_tm67w"]
+[ext_resource type="Script" uid="uid://b7enccd1ij1ic" path="res://Scenes/Entities/Player/States/Run.cs" id="5_84utv"]
+[ext_resource type="Script" uid="uid://c5t1r3ftuhwlj" path="res://Scenes/Entities/Player/States/Crouch.cs" id="6_hi4ft"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qer5h"]
+radius = 8.0
+height = 46.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pmdnf"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_xa30k"]
+resource_name = "Crouch"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Animation_qer5h"]
+resource_name = "idle"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hi4ft"]
+resource_name = "Jump"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28]
+}
+
+[sub_resource type="Animation" id="Animation_pmdnf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vgr12"]
+resource_name = "Run"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 17, 18, 19, 12, 13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pmdnf"]
+_data = {
+&"Crouch": SubResource("Animation_xa30k"),
+&"Idle": SubResource("Animation_qer5h"),
+&"Jump": SubResource("Animation_hi4ft"),
+&"RESET": SubResource("Animation_pmdnf"),
+&"Run": SubResource("Animation_vgr12")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hi4ft"]
+size = Vector2(16, 3)
+
+[node name="Player" type="CharacterBody2D" unique_id=1929386743]
+collision_layer = 0
+collision_mask = 3
+floor_snap_length = 5.0
+script = ExtResource("1_7kpwk")
+
+[node name="States" type="Node" parent="." unique_id=1820725905]
+
+[node name="Idle" type="Node" parent="States" unique_id=979673651]
+unique_name_in_owner = true
+script = ExtResource("3_idle1")
+
+[node name="Run" type="Node" parent="States" unique_id=461139443]
+unique_name_in_owner = true
+script = ExtResource("5_84utv")
+
+[node name="Jump" type="Node" parent="States" unique_id=726948073]
+unique_name_in_owner = true
+script = ExtResource("3_akw4a")
+
+[node name="Fall" type="Node" parent="States" unique_id=93221132]
+unique_name_in_owner = true
+script = ExtResource("4_tm67w")
+
+[node name="Crouch" type="Node" parent="States" unique_id=538863812]
+unique_name_in_owner = true
+script = ExtResource("6_hi4ft")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=984792716]
+position = Vector2(0, -39)
+texture = ExtResource("2_qer5h")
+hframes = 16
+vframes = 4
+
+[node name="CollisionStand" type="CollisionShape2D" parent="." unique_id=1789173785]
+position = Vector2(0, -23)
+shape = SubResource("CapsuleShape2D_qer5h")
+
+[node name="CollisionCrouch" type="CollisionShape2D" parent="." unique_id=738381497]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_pmdnf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1371915092]
+libraries/ = SubResource("AnimationLibrary_pmdnf")
+autoplay = &"Idle"
+
+[node name="OneWayPlatformShapeCast" type="ShapeCast2D" parent="." unique_id=932528952]
+enabled = false
+shape = SubResource("RectangleShape2D_hi4ft")
+target_position = Vector2(0, 6)
+max_results = 12
+collision_mask = 2

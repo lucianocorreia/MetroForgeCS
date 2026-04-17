@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Rodar no Editor Godot",
+            "type": "godot",
+            "request": "launch",
+            "project": "${workspaceFolder}"
+        },
+        {
+            "name": "Debug C# (Launch)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "/Applications/Godot_mono.app/Contents/MacOS/Godot",
+            "args": ["--path", "${workspaceFolder}"],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "justMyCode": false,
+            "console": "internalConsole",
+            "env": {
+                "GODOT_DEBUG_MANAGED": "1"
+            }
+        },
+        {
+            "name": "Debug C# (Attach)",
+            "type": "coreclr",
+            "request": "attach",
+            "processName": "Godot",
+            "justMyCode": false
+        }
+    ]
+}
