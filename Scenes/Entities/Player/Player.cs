@@ -14,8 +14,10 @@ public partial class Player : CharacterBody2D
 
     #region Exported Properties
 
-    [Export] public float MoveSpeed { get; private set; } = 200f;
-    [Export] public float MaxFallVelocity { get; private set; } = 600f;
+    [Export]
+    public float MoveSpeed { get; private set; } = 200f;
+    [Export]
+    public float MaxFallVelocity { get; private set; } = 600f;
 
     #endregion
 
@@ -31,7 +33,10 @@ public partial class Player : CharacterBody2D
 
     #region Runtime Properties
 
-    public Vector2 Direction { get; private set; }
+    public Vector2 Direction
+    {
+        get; private set;
+    }
     public float GravityMultiplier { get; set; } = 1f;
 
     #endregion
@@ -53,6 +58,12 @@ public partial class Player : CharacterBody2D
     {
         base._Ready();
 
+        if (GetTree().GetFirstNodeInGroup("Player") != this)
+        {
+            QueueFree();
+            return;
+        }
+
         CollisionStand = GetNode<CollisionShape2D>("CollisionStand");
         CollisionCrouch = GetNode<CollisionShape2D>("CollisionCrouch");
         OneWayPlatformShapeCast = GetNode<ShapeCast2D>("OneWayPlatformShapeCast");
@@ -61,6 +72,8 @@ public partial class Player : CharacterBody2D
         _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 
         InitializeStates();
+
+        CallDeferred(MethodName.Reparent, GetTree().Root);
     }
 
     public override void _UnhandledInput(InputEvent @event)

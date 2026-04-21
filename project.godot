@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="MetroForgeCS"
-run/main_scene="uid://d2vrnx655sf3s"
+run/main_scene="uid://cy23jhsstu44g"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*uid://cvnlhtnrjdm1v"
 
 [dotnet]
 
@@ -31,6 +35,10 @@ folder_colors={
 "res://Utils/": "teal",
 "res://assets/": "red"
 }
+
+[global_group]
+
+Player=""
 
 [input]
 
@@ -69,6 +77,7 @@ Attack={
 
 2d_physics/layer_1="Ground"
 2d_physics/layer_2="One Way Platform"
+2d_physics/layer_5="Player"
 "2[physics]3d/physics_engine"="Jolt Physics"
 
 [rendering]

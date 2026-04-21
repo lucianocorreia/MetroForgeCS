@@ -2,3 +2,11 @@ root = true
 
 [*]
 charset = utf-8
+
+[*.cs]
+
+csharp_preserve_single_line_statements = false
+csharp_preserve_single_line_blocks = false
+
+dotnet_sort_system_directives_first = true
+dotnet_separate_import_directive_groups = false

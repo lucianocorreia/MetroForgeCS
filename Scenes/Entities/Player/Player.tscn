@@ -109,8 +109,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi4ft"]
 size = Vector2(16, 3)
 
-[node name="Player" type="CharacterBody2D" unique_id=1929386743]
-collision_layer = 0
+[node name="Player" type="CharacterBody2D" unique_id=1929386743 groups=["Player"]]
+z_index = 1
+collision_layer = 16
 collision_mask = 3
 floor_snap_length = 5.0
 script = ExtResource("1_7kpwk")
@@ -161,3 +162,7 @@ shape = SubResource("RectangleShape2D_hi4ft")
 target_position = Vector2(0, 6)
 max_results = 12
 collision_mask = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1545035620]
+position = Vector2(0, -38)
+zoom = Vector2(2, 2)

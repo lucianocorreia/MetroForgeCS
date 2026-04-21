@@ -38,7 +38,7 @@ public partial class Run : PlayerState
 
     public override PlayerState? PhysicsProcess(double delta)
     {
-        Player.Velocity = Player.Velocity with { X = Player.MoveSpeed * Player.Direction.X };
+        Player.Velocity = Player.Velocity with { X = Player.Direction.X * Player.MoveSpeed };
 
         if (Player.IsOnFloor() == false)
         {
