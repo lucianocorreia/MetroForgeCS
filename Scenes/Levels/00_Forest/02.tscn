@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c7o3ipiklphn5" path="res://Utils/LevelBounds.cs" id="2_vk48g"]
 [ext_resource type="PackedScene" uid="uid://bpw8bgo11lrcv" path="res://Scenes/Levels/Transition/LevelTransition.tscn" id="3_vk48g"]
 [ext_resource type="PackedScene" uid="uid://bmw5h3f8wfuhm" path="res://Scenes/Levels/Props/Torch.tscn" id="4_irxce"]
+[ext_resource type="Texture2D" uid="uid://06rdev10mksh" path="res://Scenes/Levels/Tilesets/Sprites/light_stream.jpg" id="5_kyaog"]
 
 [node name="02" type="Node2D" unique_id=816219330]
 
@@ -101,3 +102,23 @@ position = Vector2(944, 448)
 
 [node name="Torch3" parent="Props" unique_id=1397782695 instance=ExtResource("4_irxce")]
 position = Vector2(920, 648)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=773090851]
+position = Vector2(261, 444)
+rotation = 0.31698096
+shadow_enabled = true
+texture = ExtResource("5_kyaog")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=194938127]
+position = Vector2(618, 409.00003)
+rotation = 0.31698096
+scale = Vector2(0.6474724, 1)
+shadow_enabled = true
+texture = ExtResource("5_kyaog")
+
+[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=714591375]
+position = Vector2(971, 405.99997)
+rotation = 0.31698096
+scale = Vector2(0.96249074, 1)
+shadow_enabled = true
+texture = ExtResource("5_kyaog")

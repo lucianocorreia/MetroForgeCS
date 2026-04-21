@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c7o3ipiklphn5" path="res://Utils/LevelBounds.cs" id="3_s7ini"]
 [ext_resource type="PackedScene" uid="uid://bpw8bgo11lrcv" path="res://Scenes/Levels/Transition/LevelTransition.tscn" id="4_8pauh"]
 [ext_resource type="PackedScene" uid="uid://cqu1ac7v1n4p5" path="res://Scenes/Levels/Props/Plant.tscn" id="5_j2oq1"]
+[ext_resource type="Texture2D" uid="uid://06rdev10mksh" path="res://Scenes/Levels/Tilesets/Sprites/light_stream.jpg" id="6_g74dg"]
 
 [sub_resource type="Gradient" id="Gradient_8pauh"]
 colors = PackedColorArray(0.70980394, 0.8980392, 0.84313726, 1, 0.28235295, 0.45490196, 0.5254902, 0)
@@ -136,3 +137,23 @@ position = Vector2(717, 454)
 
 [node name="Plant6" parent="Props" unique_id=112884448 instance=ExtResource("5_j2oq1")]
 position = Vector2(755, 580)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=605646096]
+position = Vector2(261, 444)
+rotation = 0.31698096
+shadow_enabled = true
+texture = ExtResource("6_g74dg")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=32797498]
+position = Vector2(618, 409.00003)
+rotation = 0.31698096
+scale = Vector2(0.6474724, 1)
+shadow_enabled = true
+texture = ExtResource("6_g74dg")
+
+[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=1994112898]
+position = Vector2(971, 405.99997)
+rotation = 0.31698096
+scale = Vector2(0.96249074, 1)
+shadow_enabled = true
+texture = ExtResource("6_g74dg")
