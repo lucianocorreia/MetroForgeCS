@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://qpudg5utu5f7" path="res://Scenes/Entities/Player/Player.tscn" id="2_xdxn0"]
 [ext_resource type="Script" uid="uid://c7o3ipiklphn5" path="res://Utils/LevelBounds.cs" id="3_s7ini"]
 [ext_resource type="PackedScene" uid="uid://bpw8bgo11lrcv" path="res://Scenes/Levels/Transition/LevelTransition.tscn" id="4_8pauh"]
+[ext_resource type="PackedScene" uid="uid://cqu1ac7v1n4p5" path="res://Scenes/Levels/Props/Plant.tscn" id="5_j2oq1"]
 
 [sub_resource type="Gradient" id="Gradient_8pauh"]
 colors = PackedColorArray(0.70980394, 0.8980392, 0.84313726, 1, 0.28235295, 0.45490196, 0.5254902, 0)
@@ -103,3 +104,35 @@ position = Vector2(1200, 488)
 Size = 4
 Location = 1
 TargetLevel = "uid://0fq682i3n3u6"
+
+[node name="Props" type="Node2D" parent="." unique_id=736943279]
+
+[node name="Plant" parent="Props" unique_id=884300940 instance=ExtResource("5_j2oq1")]
+position = Vector2(335, 549)
+
+[node name="Plant9" parent="Props" unique_id=1827986122 instance=ExtResource("5_j2oq1")]
+modulate = Color(1, 1, 1, 0.5254902)
+position = Vector2(139, 615)
+
+[node name="Plant8" parent="Props" unique_id=225064212 instance=ExtResource("5_j2oq1")]
+position = Vector2(271, 547)
+speed_scale = 1.5
+
+[node name="Plant7" parent="Props" unique_id=819662565 instance=ExtResource("5_j2oq1")]
+modulate = Color(1, 1, 1, 0.54509807)
+position = Vector2(238, 614)
+
+[node name="Plant2" parent="Props" unique_id=1441106351 instance=ExtResource("5_j2oq1")]
+position = Vector2(371, 613)
+
+[node name="Plant3" parent="Props" unique_id=769495328 instance=ExtResource("5_j2oq1")]
+position = Vector2(502, 591)
+
+[node name="Plant4" parent="Props" unique_id=371806397 instance=ExtResource("5_j2oq1")]
+position = Vector2(648, 454)
+
+[node name="Plant5" parent="Props" unique_id=507455621 instance=ExtResource("5_j2oq1")]
+position = Vector2(717, 454)
+
+[node name="Plant6" parent="Props" unique_id=112884448 instance=ExtResource("5_j2oq1")]
+position = Vector2(755, 580)
